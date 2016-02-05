@@ -17,7 +17,6 @@ if not anomalies:
     print("yes")
     sys.exit()
 
-print(anomalies)
 size = len(anomalies)
 left = anomalies[0]
 right = anomalies[-1] + 1
