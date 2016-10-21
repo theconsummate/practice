@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Github Navigator</title>
+</head>
+<body>
+<h1>{{search_term}}</h1>
+
+{% for x in my_data %}
+<h2>{{ loop.index }} {{x.repository_name}}</h2>
+<h3> Created {{x.created_at}}</h3>
+<a href="{{x.owner_url}}"><img src="{{x.avatar_url}}" alt="avatar" height="42" width="42"/></a>
+{{x.owner_login}}
+<h3>LastCommit</h3>
+{{x.sha}} {{x.commit_message}}  {{x.commit_author_name}}
+<hr/>
+{% endfor %}
+<!-- <h2>2. {respository_name}</h2>
+<h3> Created {created_at}</h3>
+<a href="{owner_url}"><img src="{avatar_url}" alt="avatar" height="42" width="42"/></a>
+{owner_login}
+<h3>LastCommit</h3>
+{sha} {commit_message}  {commit_author_name}
+<hr/> -->
+</body>
+</html>
