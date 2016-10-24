@@ -5,7 +5,7 @@ import requests, json, os, datetime
 app = Flask(__name__)
 app.debug = True
 
-# Define the template directory
+# Define the template directory. This is the current directory in our case
 tpldir = os.path.dirname(os.path.abspath(__file__))
 
 # Setup the template enviroment
@@ -18,7 +18,6 @@ url = "https://api.github.com/search/repositories"
 
 @app.route('/')
 def search():
-    # search_term = "arrow"
     search_term = request.args.get('search_term')
     print(search_term)
     querystring = {"q":search_term}
@@ -53,10 +52,6 @@ def search():
 
         my_data.append(my_item)
 
-    d = {"respository_name": "Abcd", "created_at": "123",
-        "owner_url": "google.com", "avatar_url":"abc.com",
-        "owner_login":"hello", "sha":"adf", "commit_message":"random", "commit_author_name":"me"}
-    # loopdata.append(d)
     return env.get_template("template.html").render(search_term = search_term, my_data = my_data)
 
 if __name__ == '__main__':
